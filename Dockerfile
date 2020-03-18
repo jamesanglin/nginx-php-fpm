@@ -208,6 +208,8 @@ RUN echo @testing http://nl.alpinelinux.org/alpine/edge/testing >> /etc/apk/repo
     pecl install xdebug-2.9.2 && \
     pecl install -o -f redis && \
     echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini && \
+    printf "\n" | pecl install --nodeps mcrypt-snapshot && \
+    echo "extension=mcrypt.so" > /usr/local/etc/php/conf.d/mcrypt.ini && \
     docker-php-source delete && \
     mkdir -p /etc/nginx && \
     mkdir -p /var/www/app && \
